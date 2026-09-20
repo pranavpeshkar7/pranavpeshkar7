@@ -1,0 +1,44 @@
+name: Generate Brick Breaker
+
+on:
+  schedule:
+    # Runs automatically every hour to sync new commits
+    - cron: "0 * * * *"
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: MakdumIbrohim/generate-brick-breaker@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_user: ${{ github.repository_owner }}
+
+          # Options: game.svg (recommended) or game.gif
+          output_path: game.svg
+
+          # Options: classic | fire | ice | lightning | poison
+          ball_skin: lightning
+
+          # Options: classic | sky | sky-night | synthwave | matrix | sakura
+          theme: sky-night
+
+          # Options: classic | laser | retro | mecha | cyber
+          paddle_skin: cyber
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: update brick breaker assets"
+          git pull --rebase --autostash origin main || true
+          git push origin main
