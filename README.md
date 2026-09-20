@@ -83,13 +83,4 @@ Every square in my contribution graph is a brick. Each commit I push makes the g
   <img src="game.svg" alt="Brick Breaker game built from my GitHub contribution graph" />
 </p>
 
-## GitHub Stats 📊
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=pranavpeshkar7&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub stats" height="160" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pranavpeshkar7&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" height="160" />
-</p>
-
----
-
 <p align="center">⭐ If you like something here, drop a star on the repo!</p>
