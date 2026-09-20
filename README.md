@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="github_banner.png" alt="Pranav's dev desk: Java, AI/ML, goals and projects" width="100%" />
+</p>
+
 <h1 align="center">Hi, I'm Pranav 👋</h1>
 
 <h3 align="center">Computer Engineering Student · Web Developer · Core Java · Researcher</h3>
@@ -45,7 +49,7 @@
 | Project | What it is | Tech |
 | :--- | :--- | :--- |
 | [**Library Management System**](https://github.com/pranavpeshkar7/Library_Management) | Built a full-stack library system in core Java with no frameworks: a custom HTTP server and REST API (GET, POST, PUT, DELETE) over MySQL using JDBC, with role-based access for students, teachers and librarians. Applied OOP and multithreading to make concurrent borrowing safe and enforce role based limits. | ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![HTML/CSS/JS](https://img.shields.io/badge/HTML/CSS/JS-E34F26?style=flat-square&logo=html5&logoColor=white) |
-| [**SecureChat**]([https://github.com/pranavpeshkar7/SecureChat]) | Built a secure chat application using RSA for key exchange and AES for message encryption. Implemented secure authentication, session management, and encrypted data storage so that only authorized users can access their conversations. |![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![HTML/CSS/JS](https://img.shields.io/badge/HTML/CSS/JS-E34F26?style=flat-square&logo=html5&logoColor=white) |
+| [**SecureChat**](https://github.com/pranavpeshkar7/SecureChat) | Built a secure chat application using RSA for key exchange and AES for message encryption. Implemented secure authentication, session management, and encrypted data storage so that only authorized users can access their conversations. | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![HTML/CSS/JS](https://img.shields.io/badge/HTML/CSS/JS-E34F26?style=flat-square&logo=html5&logoColor=white) |
 | [**ParentSphere**](https://github.com/pranavpeshkar7/ParentSphere) | Built a full-stack student–parent–teacher management platform with role based dashboards for each user type. Implemented leave-request workflows, test-marks tracking, and assignment management with full CRUD functionality. | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![HTML/CSS/JS](https://img.shields.io/badge/HTML/CSS/JS-E34F26?style=flat-square&logo=html5&logoColor=white) |
 
 ---
@@ -68,6 +72,133 @@ Federated Learning is a new approach used to train multiple machine learning mod
 </details>
 
 📖 [Read the full paper on IEEE Xplore](https://ieeexplore.ieee.org/document/11493199)
+
+---
+
+## 🧱 Commit Brick Breaker
+
+Every square in my contribution graph is a brick. Each commit I push makes the game harder to finish, and it updates itself every hour.
+
+<p align="center">
+  <img src="game.svg" alt="Brick Breaker game built from my GitHub contribution graph" />
+</p>
+
+---
+
+## 🎮 Play: Guess the Java Output
+
+Think you know Java? Read each snippet, decide what it prints, then click to reveal the answer. Keep score!
+
+**Q1. String comparison**
+
+```java
+String a = "hello";
+String b = "hel" + "lo";
+String c = new String("hello");
+System.out.println(a == b);
+System.out.println(a == c);
+System.out.println(a.equals(c));
+```
+
+<details>
+<summary>👉 Reveal answer</summary>
+
+```
+true
+false
+true
+```
+
+`"hel" + "lo"` is a compile-time constant, so it points to the same pooled string as `a`. `new String(...)` always creates a fresh object, so `==` fails but `equals` passes.
+
+</details>
+
+**Q2. Integer cache**
+
+```java
+Integer x = 127, y = 127;
+Integer p = 128, q = 128;
+System.out.println(x == y);
+System.out.println(p == q);
+```
+
+<details>
+<summary>👉 Reveal answer</summary>
+
+```
+true
+false
+```
+
+Java caches `Integer` objects from -128 to 127. Above that, autoboxing creates new objects, so `==` compares different references.
+
+</details>
+
+**Q3. The stubborn finally**
+
+```java
+static int test() {
+    try {
+        return 1;
+    } finally {
+        System.out.println("finally");
+    }
+}
+
+System.out.println(test());
+```
+
+<details>
+<summary>👉 Reveal answer</summary>
+
+```
+finally
+1
+```
+
+The `finally` block runs before the method actually returns, so "finally" prints first.
+
+</details>
+
+**Q4. Chars and strings**
+
+```java
+System.out.println('a' + 'b');
+System.out.println("" + 'a' + 'b');
+```
+
+<details>
+<summary>👉 Reveal answer</summary>
+
+```
+195
+ab
+```
+
+Two `char`s added together become an `int` (97 + 98). Once a `String` is in the expression, `+` means concatenation.
+
+</details>
+
+**Q5. Floating point**
+
+```java
+System.out.println(0.1 + 0.2 == 0.3);
+System.out.println(10 / 4 + " " + 10 / 4.0);
+```
+
+<details>
+<summary>👉 Reveal answer</summary>
+
+```
+false
+2 2.5
+```
+
+`0.1 + 0.2` is not exactly `0.3` in binary floating point. `10 / 4` is integer division (2), while `10 / 4.0` is a double (2.5).
+
+</details>
+
+**Your score:** 5/5 means you could interview me. 3-4 is solid. Under 3 means it's time to open the docs. ☕
 
 ---
 
